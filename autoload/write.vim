@@ -1,29 +1,53 @@
-" write.vim :   Vim plugin for minimalist writing mode 
-" Maintainer :  Sergey Golitsynskiy <sgolitsynskiy@gmail.com>
-" License :     See LICENSE file
-" Version :     0.1
+" ----------------------------------------------------------------------
+" write         Minimalist writing mode for Vim
+" Maintainer:   Sergey Golitsynskiy <sgolitsynskiy@gmail.com>
+" File:         autoload/write.vim
+" Source:       https://github.com/sgolitsynskiy/vim-write
+" License:      MIT
+" Last Updated: 2017 Aug 18 06:30:42 PM CDT
+" ----------------------------------------------------------------------
 
-echom "this is a test"
+" public
+" toggle line numbers maintaining maximum left margin width:
+"   if numbers are set, unset numbers + increase foldcolumn width; 
+"   otherwise set numbers + reduce foldcolumn width
+function! write#toggle_numbers(margin_width)
+    "get number of digits needed to display the last line number
+    let l:digits = len(line("$") . "")
 
-" prevent from loading twice
-if exists("g:autoloaded_write")
-  finish
-endif
-let g:autoloaded_write = 1
+    " account for Vim's handling of width of 1- and 2-digit line numbers
+    if  l:digits == 2       " 10-99 lines: add 1 space to digits
+        let l:digits += 1
+    elseif l:digits < 2     " < 10 lines: add 2 spaces to digits
+        let l:digits += 2
+    endif
+
+    let l:width = a:margin_width - l:digits - 1 " width with numbers displayed
+   
+    " toggle numbers and width
+    if &number == 1
+        setlocal nonumber
+        let &l:foldcolumn = a:margin_width
+    else
+        setlocal number
+        let &l:foldcolumn= l:width
+    endif
+endfunction
 
 
-" toggle writing mode (for any file)
-if !exists("g:writing_mode")
-    let g:writing_mode=0
-endif
+" public
+" toggle set of options for optimal writing experience
+function! write#toggle_writingmode(margin_width, textwidth, columns)
+    if g:write_writingmode == 0
+        let g:write_writingmode = 1
 
-function! write#toggleWritingMode()
-    if g:writing_mode == 0
-        let g:writing_mode = 1
+        echom a:margin_width
 
         " save current option values 
-        let s:formatoptions = &l:formatoptions
         let s:foldcolumn = &l:foldcolumn
+        let s:textwidth = &l:textwidth
+        let s:columns = &l:columns
+        let s:formatoptions = &l:formatoptions
         let s:formatprg = &l:formatprg
         let s:background = &l:background
         let s:number = &l:number
@@ -32,8 +56,10 @@ function! write#toggleWritingMode()
         let s:smartindent = &l:smartindent
 
         " set new values
+        let &foldcolumn = a:margin_width
+        let &textwidth = a:textwidth
+        let &columns = a:columns
         setlocal formatoptions=nt1
-        setlocal foldcolumn=10
         setlocal formatprg=par
         setlocal background=light
 
@@ -41,23 +67,22 @@ function! write#toggleWritingMode()
         setlocal nolist
         setlocal noautoindent
         setlocal nosmartindent
-
-        " these options don't need to be reset
-        setlocal textwidth=80
-        setlocal columns=100
     else
-        let g:writing_mode = 0
+        let g:write_writingmode = 0
 
         " restore previous option values
-        let &l:formatoptions = s:formatoptions
         let &l:foldcolumn = s:foldcolumn
+        let &l:formatoptions = s:formatoptions
         let &l:formatprg = s:formatprg
         let &l:background = s:background
         let &l:number = s:number
         let &l:list = s:list
         let &l:autoindent = s:autoindent
         let &l:smartindent = s:smartindent
+
+        " resetting these 2 options back to original values could be annoying;
+        " maybe better keep their writing mode values?
+        let &l:textwidth = s:textwidth
+        let &l:columns = s:columns
     endif
 endfunction
-
-

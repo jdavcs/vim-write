@@ -1,9 +1,51 @@
+" ----------------------------------------------------------------------
+" write         Minimalist writing mode for Vim
+" Maintainer:   Sergey Golitsynskiy <sgolitsynskiy@gmail.com>
+" File:         plugin/write.vim
+" Source:       https://github.com/sgolitsynskiy/vim-write
+" License:      MIT
+" Last Updated: 2017 Aug 18 07:06:37 PM CDT
+" ----------------------------------------------------------------------
 
-"===============================================================================
-" commands
-"===============================================================================
-if !exists(":JJ")
-    command JJ call write#toggleWritingMode()
+" prevent from loading twice; to disable plugin uncomment next line
+"let g:write_loaded = 1
+if exists("g:write_loaded")
+  finish
+endif
+let g:write_loaded = 1
+
+
+" reasonable default values
+let s:write_marginwidth = 10
+let s:write_textwidth = 80
+let s:write_columns = 100
+
+" check if globals have been defined, reassign if needed
+if exists("g:write_marginwidth")
+    let s:write_marginwidth = g:write_marginwidth
+endif
+
+if exists("g:write_textwidth")
+    let s:write_textwidth = g:write_textwidth
+endif
+
+if exists("g:write_columns")
+    let s:write_columns = g:write_columns
 endif
 
 
+" initialize writing_mode flag
+if !exists("g:write_writingmode")
+    let g:write_writingmode = 0
+endif
+
+
+" add shortcuts or mappings to these commands in your .vimrc
+if !exists(":WriteToggleWritingMode")
+    command WriteToggleWritingMode call write#toggle_writingmode(
+        \ s:write_marginwidth, s:write_textwidth, s:write_columns)
+endif
+
+if !exists(":WriteToggleLineNumbers")
+    command WriteToggleLineNumbers call write#toggle_numbers(s:write_marginwidth)
+endif
