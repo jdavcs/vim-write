@@ -4,7 +4,7 @@
 " File:         autoload/write.vim
 " Source:       https://github.com/sgolitsynskiy/vim-write
 " License:      MIT
-" Last Updated: 2017 Aug 23 07:17:29 PM CDT
+" Last Updated: 2017 Aug 23 07:33:14 PM CDT
 " ----------------------------------------------------------------------
 
 " public
@@ -37,7 +37,7 @@ endfunction
 
 " public
 " toggle set of options for optimal writing experience
-function! write#toggle_writingmode(margin_width, textwidth, columns)
+function! write#toggle_writingmode(margin_width, textwidth, columns, background)
     if g:write_writingmode == 0
         let g:write_writingmode = 1
 
@@ -57,9 +57,9 @@ function! write#toggle_writingmode(margin_width, textwidth, columns)
         let &foldcolumn = a:margin_width
         let &textwidth = a:textwidth
         let &columns = a:columns
+        let &background = a:background
         setlocal formatoptions=nt1
         setlocal formatprg=par
-        setlocal background=light
 
         setlocal nonumber
         setlocal nolist

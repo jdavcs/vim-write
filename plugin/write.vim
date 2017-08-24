@@ -4,7 +4,7 @@
 " File:         plugin/write.vim
 " Source:       https://github.com/sgolitsynskiy/vim-write
 " License:      MIT
-" Last Updated: 2017 Aug 18 07:06:37 PM CDT
+" Last Updated: 2017 Aug 23 07:36:29 PM CDT
 " ----------------------------------------------------------------------
 
 " prevent from loading twice; to disable plugin uncomment next line
@@ -19,6 +19,7 @@ let g:write_loaded = 1
 let s:write_marginwidth = 10
 let s:write_textwidth = 80
 let s:write_columns = 100
+let s:write_background = 'dark'
 
 " check if globals have been defined, reassign if needed
 if exists("g:write_marginwidth")
@@ -33,6 +34,10 @@ if exists("g:write_columns")
     let s:write_columns = g:write_columns
 endif
 
+if exists("g:write_background")
+    let s:write_background = g:write_background
+endif
+
 
 " initialize writing_mode flag
 if !exists("g:write_writingmode")
@@ -43,7 +48,8 @@ endif
 " add shortcuts or mappings to these commands in your .vimrc
 if !exists(":WriteToggleWritingMode")
     command WriteToggleWritingMode call write#toggle_writingmode(
-        \ s:write_marginwidth, s:write_textwidth, s:write_columns)
+        \ s:write_marginwidth, s:write_textwidth, 
+        \ s:write_columns, s:write_background)
 endif
 
 if !exists(":WriteToggleLineNumbers")
