@@ -4,7 +4,7 @@
 " File:         autoload/write.vim
 " Source:       https://github.com/sgolitsynskiy/vim-write
 " License:      MIT
-" Last Updated: 2017 Aug 18 06:30:42 PM CDT
+" Last Updated: 2017 Aug 23 07:17:29 PM CDT
 " ----------------------------------------------------------------------
 
 " public
@@ -40,8 +40,6 @@ endfunction
 function! write#toggle_writingmode(margin_width, textwidth, columns)
     if g:write_writingmode == 0
         let g:write_writingmode = 1
-
-        echom a:margin_width
 
         " save current option values 
         let s:foldcolumn = &l:foldcolumn
