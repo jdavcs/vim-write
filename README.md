@@ -40,5 +40,5 @@ let g:write_columns = 80
 ## Contributions
 Suggestions and feedback are [welcome](https://github.com/sgolitsynskiy/vim-write/issues). 
 
-## Licence
+## License
 [MIT](https://github.com/sgolitsynskiy/vim-write/blob/master/LICENSE)
