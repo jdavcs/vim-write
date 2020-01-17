@@ -54,9 +54,9 @@ function! write#toggle_writingmode(margin_width, textwidth, columns, background)
         let s:smartindent = &l:smartindent
 
         " set new values
-        let &foldcolumn = a:margin_width
+        "let &foldcolumn = a:margin_width
         let &textwidth = a:textwidth
-        let &columns = a:columns
+        "let &columns = a:columns
         let &background = a:background
         setlocal formatoptions=nt1
         setlocal formatprg=par
@@ -69,7 +69,7 @@ function! write#toggle_writingmode(margin_width, textwidth, columns, background)
         let g:write_writingmode = 0
 
         " restore previous option values
-        let &l:foldcolumn = s:foldcolumn
+        "let &l:foldcolumn = s:foldcolumn
         let &l:formatoptions = s:formatoptions
         let &l:formatprg = s:formatprg
         let &l:background = s:background
@@ -81,6 +81,6 @@ function! write#toggle_writingmode(margin_width, textwidth, columns, background)
         " resetting these 2 options back to original values could be annoying;
         " maybe better keep their writing mode values?
         let &l:textwidth = s:textwidth
-        let &l:columns = s:columns
+        "let &l:columns = s:columns
     endif
 endfunction

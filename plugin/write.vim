@@ -16,9 +16,9 @@ let g:write_loaded = 1
 
 
 " reasonable default values
-let s:write_marginwidth = 10
+let s:write_marginwidth = 2
 let s:write_textwidth = 80
-let s:write_columns = 100
+let s:write_columns = 0
 let s:write_background = 'dark'
 
 " check if globals have been defined, reassign if needed
