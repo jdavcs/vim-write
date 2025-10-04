@@ -4,7 +4,7 @@
 " File:         autoload/write.vim
 " Source:       https://github.com/sgolitsynskiy/vim-write
 " License:      MIT
-" Last Updated: 2017 Aug 23 07:33:14 PM CDT
+" Last Updated: 2025 Oct 04 12:19:16 PM EDT
 " ----------------------------------------------------------------------
 
 " public
@@ -22,7 +22,8 @@ function! write#toggle_numbers(margin_width)
         let l:digits += 2
     endif
 
-    let l:width = a:margin_width - l:digits - 1 " width with numbers displayed
+   " let l:width = a:margin_width - l:digits - 1 " width with numbers displayed   (this causes an error)
+    let l:width = a:margin_width
    
     " toggle numbers and width
     if &number == 1

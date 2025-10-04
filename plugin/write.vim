@@ -4,7 +4,7 @@
 " File:         plugin/write.vim
 " Source:       https://github.com/sgolitsynskiy/vim-write
 " License:      MIT
-" Last Updated: 2017 Aug 23 07:36:29 PM CDT
+" Last Updated: 2025 Jan 15 12:55:17 PM EST
 " ----------------------------------------------------------------------
 
 " prevent from loading twice; to disable plugin uncomment next line
