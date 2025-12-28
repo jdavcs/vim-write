@@ -23,7 +23,7 @@ function! write#toggle_numbers(margin_width)
     endif
 
    " let l:width = a:margin_width - l:digits - 1 " width with numbers displayed   (this causes an error)
-    let l:width = a:margin_width
+    let l:width = 0
    
     " toggle numbers and width
     if &number == 1
