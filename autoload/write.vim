@@ -1,10 +1,10 @@
 " ----------------------------------------------------------------------
 " write         Minimalist writing mode for Vim
-" Maintainer:   Sergey Golitsynskiy <sgolitsynskiy@gmail.com>
+" Maintainer:   John Davis <jdavcs@gmail.com>
 " File:         autoload/write.vim
-" Source:       https://github.com/sgolitsynskiy/vim-write
+" Source:       https://github.com/jdavcs/vim-write
 " License:      MIT
-" Last Updated: 2025 Oct 04 12:19:16 PM EDT
+" Last Updated: 2025 Dec 30 11:00:48 PM EST
 " ----------------------------------------------------------------------
 
 " public

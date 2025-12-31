@@ -1,10 +1,10 @@
 " ----------------------------------------------------------------------
 " write         Minimalist writing mode for Vim
-" Maintainer:   Sergey Golitsynskiy <sgolitsynskiy@gmail.com>
+" Maintainer:   John Davis <jdavcs@gmail.com>
 " File:         plugin/write.vim
-" Source:       https://github.com/sgolitsynskiy/vim-write
+" Source:       https://github.com/jdavcs/vim-write
 " License:      MIT
-" Last Updated: 2025 Jan 15 12:55:17 PM EST
+" Last Updated: 2025 Dec 30 11:00:53 PM EST
 " ----------------------------------------------------------------------
 
 " prevent from loading twice; to disable plugin uncomment next line

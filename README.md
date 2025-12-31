@@ -5,7 +5,7 @@ Plugin for switching to minimalist writing mode.
 [Pathogen](https://github.com/tpope/vim-pathogen)
 ```bash
 cd ~/.vim/bundle
-git clone https://github.com/sgolitsynskiy/vim-write.git
+git clone https://github.com/jdavcs/vim-write.git
 ```
 
 ## Usage
@@ -36,9 +36,8 @@ let g:write_columns = 80
 \* Here's a [good discussion of hard wrap vs. soft wrap](http://www.terminally-incoherent.com/blog/2013/06/17/using-vim-for-writing-prose/) 
 
 
-
 ## Contributions
-Suggestions and feedback are [welcome](https://github.com/sgolitsynskiy/vim-write/issues). 
+Suggestions and feedback are [welcome](https://github.com/jdavcs/vim-write/issues).
 
 ## License
-[MIT](https://github.com/sgolitsynskiy/vim-write/blob/master/LICENSE)
+[MIT](https://github.com/jdavcs/vim-write/blob/master/LICENSE)
